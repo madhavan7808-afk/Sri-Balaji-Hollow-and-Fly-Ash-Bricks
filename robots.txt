@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sri-balaji-hollow-and-fly-ash-brick.vercel.app/sitemap.xml
