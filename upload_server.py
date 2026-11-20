@@ -2,7 +2,7 @@ from flask import Flask, request, send_from_directory, jsonify
 import os
 from werkzeug.utils import secure_filename
 
-BASE_DIR = os.path.dirname(__file__)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join(BASE_DIR, 'images')
 ALLOWED_EXT = {'png', 'jpg', 'jpeg', 'webp', 'gif'}
 
@@ -31,16 +31,17 @@ def upload_files():
     return jsonify({'saved': saved})
 
 
+@app.route('/')
+def index():
+    return send_from_directory(BASE_DIR, 'index.html')
+
+
 @app.route('/<path:path>')
 def static_proxy(path):
     return send_from_directory(BASE_DIR, path)
 
 
-@app.route('/')
-def index():
-    return send_from_directory(BASE_DIR, 'gallery.html')
-
-
 if __name__ == '__main__':
-    print('Starting upload server on http://127.0.0.1:5500')
-    app.run(host='127.0.0.1', port=5500, debug=True)
+    port = int(os.environ.get('PORT', 5500))
+    print(f'Starting Sri Balaji Bricks server on http://127.0.0.1:{port}')
+    app.run(host='127.0.0.1', port=port, debug=True)

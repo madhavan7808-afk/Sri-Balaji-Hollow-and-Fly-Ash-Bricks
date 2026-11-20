@@ -3,124 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sri Balaji Hollow and Fly Ash Bricks - Gallery</title>
+    <meta name="description" content="View Sri Balaji's factory gallery: high-strength solid blocks, fly ash bricks, automated production machinery, and finished compound walls in Salem.">
+    <title>Photo Gallery & Production Yard | Sri Balaji Hollow and Fly Ash Bricks</title>
+    
+    <!-- Instant Theme Detection (Prevents theme flash) -->
+    <script>
+        (function() {
+            var savedTheme = localStorage.getItem('sri_balaji_theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+
+    <!-- Global Interactive 3D Particle Canvas -->
+    <canvas id="bgParticlesCanvas" class="global-particles-canvas"></canvas>
+
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
         <div class="container">
-            <div class="logo">
-                <i class="fas fa-cube"></i> Sri Balaji Hollow and Fly Ash Bricks
+            <div class="top-bar-left">
+                <span class="top-badge"><i class="fas fa-certificate"></i> Factory Direct</span>
+                <span><i class="fas fa-map-marker-alt"></i> Ponnarampatty, Vazhapadi, Salem, Tamil Nadu</span>
             </div>
+            <div class="top-bar-right">
+                <a href="tel:+919443188311"><i class="fas fa-phone-alt"></i> +91 94431 88311</a>
+                <a href="https://wa.me/919443188311?text=Hello%20Sri%20Balaji%20Bricks,%20I%20would%20like%20to%20visit%20your%20yard." target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Sri Balaji Bricks Home">
+                <div class="logo-icon-box">
+                    <i class="fas fa-cubes"></i>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-brand">Sri Balaji <span>Bricks</span></div>
+                    <div class="logo-sub">Hollow & Fly Ash Blocks</div>
+                </div>
+            </a>
+
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="gallery.html" class="active">Gallery</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme" title="Switch Dark / Light Theme">
+                    <i class="fas fa-sun theme-icon-sun"></i>
+                    <i class="fas fa-moon theme-icon-moon"></i>
+                </button>
+                <a href="contact.html" class="btn btn-primary nav-btn-contact">
+                    <i class="fas fa-envelope"></i> Contact Us
+                </a>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <section class="gallery-section">
+    <!-- Page Header Hero with Interactive 3D WebGL Canvas -->
+    <header class="hero" style="padding: 70px 0 50px;">
+        <canvas id="hero3dCanvas" class="hero-webgl-canvas"></canvas>
+        <div class="container" style="text-align: center; position: relative; z-index: 2;">
+            <div class="hero-tag">
+                <i class="fas fa-camera"></i> Visual Showcase
+            </div>
+            <h1 class="hero-title" style="margin-bottom: 16px;">
+                Production Yard & <span>Facility Gallery</span>
+            </h1>
+            <p class="hero-subtitle" style="max-width: 680px; margin: 0 auto;">
+                Inspect our high-capacity hydraulic press line, automated hydration curing bays, and ready-to-dispatch inventory in Ponnarampatty, Vazhapadi, Salem. Click any image for full-screen inspection.
+            </p>
+        </div>
+    </header>
+
+    <!-- Gallery Section with Filters & Interactive Lightbox -->
+    <section class="section-gallery">
         <div class="container">
-            <h2>Gallery</h2>
+            
+            <div class="section-heading" style="margin-bottom: 30px;">
+                <span class="hero-tag"><i class="fas fa-images"></i> Manufacturing Portfolio</span>
+                <h2>Explore Plant Operations & Products</h2>
+                <p>Filter by product category or production area to examine material quality.</p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All Photos (8)</button>
+                <button class="filter-btn" data-filter="solid">Solid Blocks</button>
+                <button class="filter-btn" data-filter="flyash">Fly Ash Bricks</button>
+                <button class="filter-btn" data-filter="compound">Compound Walls</button>
+                <button class="filter-btn" data-filter="yard">Production & Yard</button>
+            </div>
+
+            <!-- Gallery Grid with 3D Tilt Cards -->
             <div class="gallery-grid">
-                <div class="gallery-card">
-                    <button class="lightbox-trigger" data-image="image1.webp" data-title="Finished Bricks Closeup">
-                        <img loading="lazy" src="image1.webp" alt="Finished Bricks Closeup">
-                    </button>
-                </div>
-
-                <div class="gallery-card">
-                    <button class="lightbox-trigger" data-image="image2.webp" data-title="Production Yard">
-                        <img loading="lazy" src="image2.webp" alt="Production Yard">
-                    </button>
-                </div>
-
-                <div class="gallery-card">
-                    <button class="lightbox-trigger" data-image="image3.webp" data-title="Drying Area">
-                        <img loading="lazy" src="image3.webp" alt="Drying Area">
-                    </button>
-                </div>
                 
-                <div class="gallery-card">
-                    <button class="lightbox-trigger" data-image="image4.jpg" data-title="Palletized Bricks">
-                        <img loading="lazy" src="image4.jpg" alt="Palletized Bricks">
-                    </button>
+                <!-- Card 1 -->
+                <div class="gallery-card tilt-card" data-category="solid">
+                    <img loading="lazy" src="image1.webp" alt="Precision Finished Solid Blocks Closeup">
+                    <div class="gallery-card-body">
+                        <div class="gallery-card-title">Cured Solid Blocks</div>
+                        <span class="gallery-card-tag">Solid Blocks</span>
+                    </div>
                 </div>
 
-                <div class="gallery-card">
-                    <button class="lightbox-trigger" data-image="image5.jpg" data-title="Brick Storage Yard">
-                        <img loading="lazy" src="image5.jpg" alt="Brick Storage Yard">
-                    </button>
+                <!-- Card 2 -->
+                <div class="gallery-card tilt-card" data-category="compound">
+                    <img loading="lazy" src="image2.webp" alt="Precast Readymade Compound Wall Panels">
+                    <div class="gallery-card-body">
+                        <div class="gallery-card-title">Precast Compound Walls</div>
+                        <span class="gallery-card-tag">Compound Wall</span>
+                    </div>
                 </div>
 
-                <div class="gallery-card">
-                    <button class="lightbox-trigger" data-image="image6.jpg" data-title="Stacked Blocks">
-                        <img loading="lazy" src="image6.jpg" alt="Stacked Blocks">
-                    </button>
+                <!-- Card 3 -->
+                <div class="gallery-card tilt-card" data-category="yard">
+                    <img loading="lazy" src="image3.webp" alt="Automated Drying & Hydration Yard">
+                    <div class="gallery-card-body">
+                        <div class="gallery-card-title">Hydration Curing Yard</div>
+                        <span class="gallery-card-tag">Production Yard</span>
+                    </div>
                 </div>
 
-                <div class="gallery-card">
-                    <button class="lightbox-trigger" data-image="image7.jpg" data-title="Hollow Blocks Closeup">
-                        <img loading="lazy" src="image7.jpg" alt="Hollow Blocks Closeup">
-                    </button>
+                <!-- Card 4 -->
+                <div class="gallery-card tilt-card" data-category="flyash">
+                    <img loading="lazy" src="image4.jpg" alt="Palletized High-Density Fly Ash Bricks">
+                    <div class="gallery-card-body">
+                        <div class="gallery-card-title">Palletized Fly Ash Bricks</div>
+                        <span class="gallery-card-tag">Fly Ash</span>
+                    </div>
                 </div>
 
-                <div class="gallery-card">
-                    <button class="lightbox-trigger" data-image="image8.jpg" data-title="Production Stack">
-                        <img loading="lazy" src="image8.jpg" alt="Production Stack">
-                    </button>
+                <!-- Card 5 -->
+                <div class="gallery-card tilt-card" data-category="yard">
+                    <img loading="lazy" src="image5.jpg" alt="Bulk Ready-Dispatch Storage Yard">
+                    <div class="gallery-card-body">
+                        <div class="gallery-card-title">Dispatch Storage Inventory</div>
+                        <span class="gallery-card-tag">Storage Yard</span>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="gallery-card tilt-card" data-category="solid">
+                    <img loading="lazy" src="image6.jpg" alt="Interlocking Heavy-Duty Concrete Blocks">
+                    <div class="gallery-card-body">
+                        <div class="gallery-card-title">Heavy-Duty Block Stacks</div>
+                        <span class="gallery-card-tag">Solid Blocks</span>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="gallery-card tilt-card" data-category="solid">
+                    <img loading="lazy" src="image7.jpg" alt="Hollow Concrete Insulation Blocks">
+                    <div class="gallery-card-body">
+                        <div class="gallery-card-title">Acoustic Hollow Blocks</div>
+                        <span class="gallery-card-tag">Hollow Blocks</span>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="gallery-card tilt-card" data-category="yard">
+                    <img loading="lazy" src="image8.jpg" alt="High-Tonnage Hydraulic Production Output">
+                    <div class="gallery-card-body">
+                        <div class="gallery-card-title">Hydraulic Press Output</div>
+                        <span class="gallery-card-tag">Hydraulic Line</span>
+                    </div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <div class="lightbox" id="lightbox">
-        <div class="lightbox-content">
-            <button class="lightbox-close" id="lightboxClose">×</button>
-            <img id="lightboxImage" src="" alt="Expanded gallery image">
+    <!-- Clean Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Expanded Image Preview">
+        <div class="lightbox-content-box">
+            <button class="lightbox-close-btn" id="lightboxClose" aria-label="Close image preview">&times;</button>
+            <div class="lightbox-img-wrapper">
+                <img id="lightboxImg" src="" alt="Expanded preview">
+            </div>
+            <div class="lightbox-footer">
+                <div class="lightbox-title" id="lightboxTitle">Factory Image Preview</div>
+                <a href="contact.html" class="btn btn-primary btn-sm"><i class="fas fa-envelope"></i> Inquire About This Item</a>
+            </div>
         </div>
     </div>
 
+    <!-- Call to Action Banner -->
+    <section class="section-cta">
+        <div class="container">
+            <h2>Would You Like to Inspect Our Plant in Person?</h2>
+            <p>We welcome contractors, engineers, and homeowners to visit our production facility in Ponnarampatty, Vazhapadi, Salem to test block strength firsthand.</p>
+            <div class="cta-btns">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fas fa-envelope"></i> Contact Us</a>
+                <a href="https://wa.me/919443188311?text=Hello%20Sri%20Balaji%20Bricks,%20I%20would%20like%20to%20visit%20your%20facility." target="_blank" class="btn btn-whatsapp btn-lg"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Contact Actions -->
+    <div class="floating-contact-stack">
+        <button class="floating-action-btn btn-float-top" id="scrollTopBtn" title="Back to Top" aria-label="Scroll to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <a href="tel:+919443188311" class="floating-action-btn btn-float-call" title="Call Us Directly" aria-label="Call Sri Balaji Bricks">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="https://wa.me/919443188311?text=Hello%20Sri%20Balaji%20Bricks,%20I%20would%20like%20to%20inquire%20about%20your%20products." target="_blank" class="floating-action-btn btn-float-whatsapp" title="WhatsApp Us" aria-label="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Modern Corporate Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h4>About Us</h4>
-                    <p>Sri Balaji Hollow and Fly Ash Bricks - Your trusted partner for quality building materials since 2020</p>
+                <div class="footer-brand">
+                    <h3>Sri Balaji <span>Bricks</span></h3>
+                    <p>
+                        Leading manufacturer of high-strength solid blocks, hollow blocks, eco-friendly fly ash bricks, and readymade compound walls. Serving builders, civil engineers, and homeowners with factory-direct pricing since 2020.
+                    </p>
+                    <div class="footer-social-row">
+                        <a href="https://wa.me/919443188311" target="_blank" class="footer-social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61577750780988" target="_blank" class="footer-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="tel:+919443188311" class="footer-social-link" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
+                    </div>
                 </div>
-                <div class="footer-section">
+
+                <div class="footer-col">
                     <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+                    <div class="footer-nav">
+                        <a href="index.html"><i class="fas fa-chevron-right"></i> Home</a>
+                        <a href="products.html"><i class="fas fa-chevron-right"></i> All Products</a>
+                        <a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a>
+                        <a href="gallery.html"><i class="fas fa-chevron-right"></i> Photo Gallery</a>
+                        <a href="contact.html"><i class="fas fa-chevron-right"></i> Contact & Directions</a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p>Phone: <a href="tel:+919443188311" style="color: #ccc; text-decoration: none;">+91 9443188311</a></p>
-                    <p>Phone: <a href="tel:+919842780320" style="color: #ccc; text-decoration: none;">+91 9842780320</a></p>
-                    <p><a href="https://wa.me/919443188311" style="color: #ccc; text-decoration: none;">WhatsApp</a></p>
+
+                <div class="footer-col">
+                    <h4>Our Products</h4>
+                    <div class="footer-nav">
+                        <a href="products.html"><i class="fas fa-cube"></i> Solid Concrete Blocks</a>
+                        <a href="products.html"><i class="fas fa-leaf"></i> Fly Ash Bricks</a>
+                        <a href="products.html"><i class="fas fa-border-all"></i> Hollow Blocks</a>
+                        <a href="products.html"><i class="fas fa-shield-alt"></i> Precast Compound Walls</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact & Yard</h4>
+                    <div class="footer-contact-row">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Ponnarampatty, Vazhapadi, Salem, Tamil Nadu 636202</span>
+                    </div>
+                    <div class="footer-contact-row">
+                        <i class="fas fa-phone-alt"></i>
+                        <span><a href="tel:+919443188311">+91 94431 88311</a><br><a href="tel:+919842780320">+91 98427 80320</a></span>
+                    </div>
+                    <div class="footer-contact-row">
+                        <i class="fas fa-envelope"></i>
+                        <span>madhavanx1581@gmail.com</span>
+                    </div>
                 </div>
             </div>
+
             <div class="footer-bottom">
                 <p>&copy; 2026 Sri Balaji Hollow and Fly Ash Bricks. All rights reserved.</p>
+                <p>Engineered for Maximum Strength & Durability | Salem, Tamil Nadu</p>
             </div>
         </div>
     </footer>
 
+    <!-- Three.js 3D WebGL Library & Script -->
+    <script src="three.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

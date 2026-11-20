@@ -1,0 +1,8 @@
+# Redundant local nested directory
+Sri-Balaji-Hollow-and-Fly-Ash-Bricks-main/
+
+# Python cache & temporary uploads
+__pycache__/
+*.py[cod]
+*$py.class
+images/

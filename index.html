@@ -1,182 +1,322 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sri Balaji Hollow and Fly Ash Bricks - Salem's leading manufacturer of high-strength solid blocks, fly ash bricks, hollow blocks, and readymade compound walls.">
+    <title>Sri Balaji Hollow and Fly Ash Bricks | Quality Masonry Manufacturing Salem</title>
+    
+    <!-- Instant Theme Detection (Prevents theme flash) -->
+    <script>
+        (function() {
+            var savedTheme = localStorage.getItem('sri_balaji_theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
 
-    <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="EppF4ww16srbZouzh6jQzH_rnvDamop80nZwrBlHUrU">
-
-    <title>Sri Balaji Hollow and Fly Ash Bricks - Premium Building Materials</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+
+    <!-- Global Interactive 3D Particle Canvas -->
+    <canvas id="bgParticlesCanvas" class="global-particles-canvas"></canvas>
+
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
         <div class="container">
-            <div class="logo">
-                <i class="fas fa-cube"></i> Sri Balaji Bricks
+            <div class="top-bar-left">
+                <span class="top-badge"><i class="fas fa-certificate"></i> Factory Direct</span>
+                <span><i class="fas fa-map-marker-alt"></i> Ponnarampatty, Vazhapadi, Salem, Tamil Nadu</span>
             </div>
+            <div class="top-bar-right">
+                <a href="tel:+919443188311"><i class="fas fa-phone-alt"></i> +91 94431 88311</a>
+                <a href="https://wa.me/919443188311?text=Hello%20Sri%20Balaji%20Bricks,%20I%20would%20like%20to%20inquire%20about%20your%20products." target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Sri Balaji Bricks Home">
+                <div class="logo-icon-box">
+                    <i class="fas fa-cubes"></i>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-brand">Sri Balaji <span>Bricks</span></div>
+                    <div class="logo-sub">Hollow & Fly Ash Blocks</div>
+                </div>
+            </a>
+
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme" title="Switch Dark / Light Theme">
+                    <i class="fas fa-sun theme-icon-sun"></i>
+                    <i class="fas fa-moon theme-icon-moon"></i>
+                </button>
+                <a href="contact.html" class="btn btn-primary nav-btn-contact">
+                    <i class="fas fa-envelope"></i> Contact Us
+                </a>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>🏗️ Quality Building Materials for Modern Construction</h1>
-            <p>Premium Solid Blocks, Fly Ash Bricks & Readymade Compound Walls - Durable, Sustainable, Affordable</p>
-            <div class="hero-buttons">
-                <a href="products.html" class="btn btn-primary">🛍️ Explore Products</a>
-                <a href="contact.html" class="btn btn-secondary">📞 Get Quote Now</a>
+    <!-- 3D Hero Section (Interactive WebGL Canvas) -->
+    <header class="hero">
+        <canvas id="hero3dCanvas" class="hero-webgl-canvas"></canvas>
+
+        <div class="container">
+            <div class="hero-layout">
+                <div class="hero-text-content">
+                    <div class="hero-tag">
+                        <i class="fas fa-shield-alt"></i> Certified Heavy-Duty Masonry
+                    </div>
+                    <h1 class="hero-title">
+                        Building Stronger <span>Foundations</span> For Generations
+                    </h1>
+                    <p class="hero-subtitle">
+                        Automated high-tonnage hydraulic production ensuring unyielding compressive strength, precise uniform dimensions, and exceptional thermal insulation for Tamil Nadu's leading builders.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="contact.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-paper-plane"></i> Contact Us
+                        </a>
+                        <a href="products.html" class="btn btn-outline btn-lg">
+                            <i class="fas fa-cubes"></i> View Product Catalog
+                        </a>
+                    </div>
+                    <div class="hero-trust-list">
+                        <div class="trust-item"><i class="fas fa-check-circle"></i> 30-Tonne Hydraulic Compaction</div>
+                        <div class="trust-item"><i class="fas fa-check-circle"></i> Quality & Load Certified</div>
+                        <div class="trust-item"><i class="fas fa-check-circle"></i> Factory Direct Pricing</div>
+                    </div>
+                </div>
+
+                <div class="hero-visual-box">
+                    <div class="hero-image-frame tilt-card">
+                        <img src="image1.webp" alt="High-strength solid concrete blocks manufactured by Sri Balaji Bricks">
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Products Preview Section -->
-    <section class="products-preview">
+    <!-- Product Line Showcase with 3D Tilt Cards -->
+    <section class="section-products">
         <div class="container">
-            <h2>✨ Our Premium Products</h2>
+            <div class="section-heading">
+                <span class="hero-tag"><i class="fas fa-cubes"></i> Premium Masonry Line</span>
+                <h2>Engineered For Maximum Strength</h2>
+                <p>Every block is machine-molded with calibrated aggregate mixes and cured for 21 full days under automated water sprinklers.</p>
+            </div>
+
             <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-cube"></i>
+                <!-- Product 1 -->
+                <div class="tilt-card">
+                    <div class="product-img-box">
+                        <img src="image1.webp" alt="Solid Concrete Blocks">
+                        <span class="product-pill">High Load Bearing</span>
                     </div>
-                    <h3>Solid Blocks</h3>
-                    <p>Premium solid concrete blocks with superior compressive strength perfect for load-bearing walls and commercial structures</p>
-                    <img src="image3.webp" alt="Solid Blocks" style="width: 100%; height: auto; border-radius: 10px; margin: 1rem 0;">
-                    <a href="products.html" class="link-btn">Learn More →</a>
+                    <div class="product-body">
+                        <h3 class="product-title">Solid Concrete Blocks</h3>
+                        <p class="product-desc">Heavy-duty structural blocks manufactured under 30-tonne pressure. Ideal for multi-story load-bearing walls and basement foundations.</p>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-primary btn-sm"><i class="fas fa-envelope"></i> Inquire Now</a>
+                            <a href="products.html" class="btn btn-outline btn-sm">Explore More</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-leaf"></i>
+
+                <!-- Product 2 -->
+                <div class="tilt-card">
+                    <div class="product-img-box">
+                        <img src="image4.jpg" alt="Eco Fly Ash Bricks">
+                        <span class="product-pill">Thermal Efficient</span>
                     </div>
-                    <h3>Fly Ash Bricks</h3>
-                    <p>Sustainable fly ash bricks combining environmental responsibility with superior strength and durability</p>
-                    <img src="image4.jpeg" alt="Fly Ash Bricks" style="width: 100%; height: auto; border-radius: 10px; margin: 1rem 0;">
-                    <a href="products.html" class="link-btn">Learn More →</a>
+                    <div class="product-body">
+                        <h3 class="product-title">Eco-Friendly Fly Ash Bricks</h3>
+                        <p class="product-desc">Precision-molded Class-F fly ash bricks with razor-sharp edges. Reduces mortar usage by 35% and maintains cooler room interiors.</p>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-primary btn-sm"><i class="fas fa-envelope"></i> Inquire Now</a>
+                            <a href="products.html" class="btn btn-outline btn-sm">Explore More</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <i class="fas fa-building"></i>
+
+                <!-- Product 3 -->
+                <div class="tilt-card">
+                    <div class="product-img-box">
+                        <img src="image2.webp" alt="Precast Readymade Compound Wall">
+                        <span class="product-pill">Rapid 1-Day Install</span>
                     </div>
-                    <h3>Readymade Compound Wall</h3>
-                    <p>Pre-fabricated compound walls ready for instant installation with superior strength and quick construction process</p>
-                    <img src="image2.webp" alt="Readymade Compound Wall" style="width: 100%; height: auto; border-radius: 10px; margin: 1rem 0;">
-                    <a href="products.html" class="link-btn">Learn More →</a>
+                    <div class="product-body">
+                        <h3 class="product-title">Precast Compound Walls</h3>
+                        <p class="product-desc">Steel-reinforced concrete boundary panels and grooved columns. Erect up to 100 running feet per day at 40% lower cost than brickwork.</p>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-primary btn-sm"><i class="fas fa-envelope"></i> Inquire Now</a>
+                            <a href="products.html" class="btn btn-outline btn-sm">Explore More</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Preview Section -->
-    <section class="gallery-section gallery-preview-section">
+    <!-- Manufacturing Quality & Features Section -->
+    <section class="section-features">
         <div class="container">
-            <h2>📸 Gallery Preview</h2>
-            <div class="gallery-preview-card">
-                <a href="gallery.html" class="gallery-preview-link">
-                    <img src="image1.webp" alt="Sri Balaji brick production">
-                    <div class="gallery-preview-overlay">
-                        <h3>🖼️ View Full Gallery</h3>
-                        <p>Click to see all images and open them in full size.</p>
-                    </div>
-                </a>
+            <div class="section-heading">
+                <span class="hero-tag"><i class="fas fa-cogs"></i> Technical Excellence</span>
+                <h2>Why Builders Choose Sri Balaji</h2>
+                <p>Industrial machinery combined with strict quality benchmarks guarantee structural integrity for every project.</p>
             </div>
-            <div class="gallery-preview-footer">
-                <p>Only one preview is shown here. Click below to open the full gallery page.</p>
-                <a href="gallery.html" class="btn btn-secondary">Open Gallery</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <h2>🌟 Why Choose Our Bricks?</h2>
             <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Superior Quality</h3>
-                    <p>High-strength bricks manufactured to international standards with rigorous quality control</p>
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+                    <h3>High-Density Hydraulic Press</h3>
+                    <p>Heavy automated compaction removes micro-cavities, ensuring maximum density and earthquake resistance.</p>
                 </div>
-                <div class="feature-card">
-                    <i class="fas fa-leaf"></i>
-                    <h3>Eco-Friendly</h3>
-                    <p>Made from fly ash, reducing environmental impact while maintaining excellent durability</p>
+
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-ruler-combined"></i></div>
+                    <h3>Zero Dimensional Warping</h3>
+                    <p>Uniform sharp edges and consistent dimensions eliminate irregular mortar lines and cut plastering expenses.</p>
                 </div>
-                <div class="feature-card">
-                    <i class="fas fa-money-bill-wave"></i>
-                    <h3>Cost-Effective</h3>
-                    <p>Competitive pricing without compromising on quality. Bulk discounts available</p>
+
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-tint"></i></div>
+                    <h3>21-Day Sprinkler Curing</h3>
+                    <p>Never rush dispatch. Every batch undergoes mandatory 21-day hydration curing for peak mineral crystallization.</p>
                 </div>
-                <div class="feature-card">
-                    <i class="fas fa-truck-fast"></i>
-                    <h3>Fast Delivery</h3>
-                    <p>Reliable and quick delivery to your construction site across the region</p>
+
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Eco-Friendly & Green Rated</h3>
+                    <p>Conserves fertile agricultural soil by utilizing mineral fly ash byproducts, lowering carbon footprints.</p>
                 </div>
-                <div class="feature-card">
-                    <i class="fas fa-thermometer-half"></i>
-                    <h3>Thermal Efficient</h3>
-                    <p>Excellent insulation properties reduce heating and cooling costs in buildings</p>
+
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-truck-loading"></i></div>
+                    <h3>Direct Safe Site Logistics</h3>
+                    <p>Palletized loading and dedicated lorry transport direct to your Salem or regional construction site.</p>
                 </div>
-                <div class="feature-card">
-                    <i class="fas fa-headset"></i>
-                    <h3>Expert Support</h3>
-                    <p>Dedicated customer support and technical guidance for your construction needs</p>
+
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-award"></i></div>
+                    <h3>Factory Direct Pricing</h3>
+                    <p>Purchase straight from the manufacturing source in Vazhapadi. Zero broker commissions or inflated retailer markups.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
+    <!-- Call to Action Banner -->
+    <section class="section-cta">
         <div class="container">
-            <h2>🚀 Ready to Get Started?</h2>
-            <p>Contact us today for quotes and more information about our products</p>
-            <a href="contact.html" class="btn btn-light">Contact Us Now</a>
+            <h2>Start Your Construction with Salem's Best Masonry</h2>
+            <p>Get factory-direct rates, free physical material samples, and guaranteed on-site transport logistics.</p>
+            <div class="cta-btns">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fas fa-envelope"></i> Contact Us</a>
+                <a href="https://wa.me/919443188311?text=Hello%20Sri%20Balaji%20Bricks,%20I%20would%20like%20to%20request%20pricing." target="_blank" class="btn btn-whatsapp btn-lg"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Floating Contact Actions -->
+    <div class="floating-contact-stack">
+        <button class="floating-action-btn btn-float-top" id="scrollTopBtn" title="Back to Top" aria-label="Scroll to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <a href="tel:+919443188311" class="floating-action-btn btn-float-call" title="Call Us Directly" aria-label="Call Sri Balaji Bricks">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="https://wa.me/919443188311?text=Hello%20Sri%20Balaji%20Bricks,%20I%20would%20like%20to%20inquire%20about%20your%20products." target="_blank" class="floating-action-btn btn-float-whatsapp" title="WhatsApp Us" aria-label="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Modern Corporate Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h4>About Us</h4>
-                    <p>Sri Balaji Hollow and Fly Ash Bricks - Your trusted partner for quality building materials since 2020</p>
+                <div class="footer-brand">
+                    <h3>Sri Balaji <span>Bricks</span></h3>
+                    <p>
+                        Leading manufacturer of high-strength solid blocks, hollow blocks, eco-friendly fly ash bricks, and readymade compound walls. Serving builders, civil engineers, and homeowners with factory-direct pricing since 2020.
+                    </p>
+                    <div class="footer-social-row">
+                        <a href="https://wa.me/919443188311" target="_blank" class="footer-social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61577750780988" target="_blank" class="footer-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="tel:+919443188311" class="footer-social-link" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
+                    </div>
                 </div>
-                <div class="footer-section">
+
+                <div class="footer-col">
                     <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+                    <div class="footer-nav">
+                        <a href="index.html"><i class="fas fa-chevron-right"></i> Home</a>
+                        <a href="products.html"><i class="fas fa-chevron-right"></i> All Products</a>
+                        <a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a>
+                        <a href="gallery.html"><i class="fas fa-chevron-right"></i> Photo Gallery</a>
+                        <a href="contact.html"><i class="fas fa-chevron-right"></i> Contact & Directions</a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p>Phone: <a href="tel:+919443188311" style="color: #ccc; text-decoration: none;">+91 9443188311</a></p>
-                    <p>Phone: <a href="tel:+919842780320" style="color: #ccc; text-decoration: none;">+91 9842780320</a></p>
-                    <p><a href="https://wa.me/919443188311" style="color: #ccc; text-decoration: none;">WhatsApp</a></p>
+
+                <div class="footer-col">
+                    <h4>Our Products</h4>
+                    <div class="footer-nav">
+                        <a href="products.html"><i class="fas fa-cube"></i> Solid Concrete Blocks</a>
+                        <a href="products.html"><i class="fas fa-leaf"></i> Fly Ash Bricks</a>
+                        <a href="products.html"><i class="fas fa-border-all"></i> Hollow Blocks</a>
+                        <a href="products.html"><i class="fas fa-shield-alt"></i> Precast Compound Walls</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact & Yard</h4>
+                    <div class="footer-contact-row">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Ponnarampatty, Vazhapadi, Salem, Tamil Nadu 636202</span>
+                    </div>
+                    <div class="footer-contact-row">
+                        <i class="fas fa-phone-alt"></i>
+                        <span><a href="tel:+919443188311">+91 94431 88311</a><br><a href="tel:+919842780320">+91 98427 80320</a></span>
+                    </div>
+                    <div class="footer-contact-row">
+                        <i class="fas fa-envelope"></i>
+                        <span>madhavanx1581@gmail.com</span>
+                    </div>
                 </div>
             </div>
+
             <div class="footer-bottom">
                 <p>&copy; 2026 Sri Balaji Hollow and Fly Ash Bricks. All rights reserved.</p>
+                <p>Engineered for Maximum Strength & Durability | Salem, Tamil Nadu</p>
             </div>
         </div>
     </footer>
 
+    <!-- Three.js 3D WebGL Library (Local offline bundle) & Script -->
+    <script src="three.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
